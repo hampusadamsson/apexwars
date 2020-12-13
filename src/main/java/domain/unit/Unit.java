@@ -43,7 +43,7 @@ public class Unit {
         this.status = Status.READY;
     }
 
-    public boolean isReadyToAttack() {
+    public boolean readyToAttack() {
         if (this.status.equals(Status.READY)) {
             return true;
         }

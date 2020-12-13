@@ -1,15 +1,21 @@
 package domain.terrain;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import domain.general.Pid;
 import domain.terrain.cells.Position;
 import domain.unit.Unit;
 import domain.unit.attributes.Status;
+import domain.unit.attributes.UnitName;
 import domainfactory.UnitFactory;
 import game.playerinput.PlayerAI;
 import org.junit.jupiter.api.Test;
+import utils.ResourceReader;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -71,6 +77,18 @@ class MapTest {
         PlayerAI a = new PlayerAI(Pid.P1);
         a.play(m);
         assertNull(m.getCell(new Position(2, 2)).getOwner());
+    }
+
+    @Test
+    void serialize() throws IOException {
+        var m = new Map(4, 4, CreationStrategy.RANDOM);
+        m.setName("Test-map");
+        m.placeUnit(0, 0, UnitFactory.create(UnitName.TANK, Pid.P1));
+        m.placeUnit(0, 1, UnitFactory.create(UnitName.ARTILLERY, Pid.P1));
+        m.placeUnit(3, 3, UnitFactory.create(UnitName.INFANTRY, Pid.P2));
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        String s = mapper.writeValueAsString(m);
+        System.out.println(s);
     }
 
 }

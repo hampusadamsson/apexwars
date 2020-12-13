@@ -7,6 +7,7 @@ import domainfactory.CellFactory;
 import domain.terrain.cells.Position;
 import domain.unit.Unit;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -15,7 +16,9 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Data
+@NoArgsConstructor
 public class Map {
+    String name;
     int width;
     int height;
     ArrayList<ArrayList<Cell>> cells;
@@ -84,7 +87,7 @@ public class Map {
     public boolean canAttack(Position source, Position target) { //TODO - can only play in your turn
         Cell s = this.getCell(source);
         Cell t = this.getCell(target);
-        if (!s.getOwner().equals(t.getOwner()) && s.hasOwner() && t.hasOwner() && s.getUnit().isReadyToAttack()) {
+        if (!s.getOwner().equals(t.getOwner()) && s.hasOwner() && t.hasOwner() && s.getUnit().readyToAttack()) {
             Unit su = s.getUnit();
             Unit tu = t.getUnit();
             boolean inAttackRange = su.inAttackRange(source, target);
@@ -134,7 +137,7 @@ public class Map {
     public boolean move(Position source, Position target) {
         Cell s = this.getCell(source);
         Cell t = this.getCell(target);
-        if (!t.hasOwner() && s.isReady()) {
+        if (!t.hasOwner() && s.unitIsReady()) {
             Set<Position> possibleMoves = s.getUnit().getPossibleMoves(this, source);
             if (possibleMoves.contains(target)) {
                 Unit u = s.getUnit();

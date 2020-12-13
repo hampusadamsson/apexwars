@@ -1,15 +1,13 @@
 package domain.terrain.cells;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import domain.general.Pid;
 import domain.unit.Unit;
 import domain.unit.attributes.Attack;
 import domain.unit.attributes.Status;
-import domain.unit.attributes.UnitAttributes;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import javax.print.DocFlavor;
 
 @Data
 @NoArgsConstructor
@@ -29,6 +27,7 @@ public class Cell {
         return this.getOwner() != null;
     }
 
+    @JsonIgnore
     public Pid getOwner() {
         return this.unit != null ? this.unit.getPlayer() : null;
     }
@@ -49,12 +48,12 @@ public class Cell {
 
     public boolean canAttack() {
         if (this.hasOwner()) {
-            return this.unit.isReadyToAttack();
+            return this.unit.readyToAttack();
         }
         return false;
     }
 
-    public boolean isReady() {
+    public boolean unitIsReady() {
         return this.hasOwner() && this.getUnit().getStatus().equals(Status.READY);
     }
 }

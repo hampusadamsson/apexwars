@@ -3,13 +3,20 @@ package game;
 import domain.general.Pid;
 import domain.terrain.CreationStrategy;
 import domain.terrain.Map;
+import domain.terrain.cells.Position;
 import domain.unit.attributes.UnitName;
 import domainfactory.UnitFactory;
+import game.playerinput.PlayerAI;
 import game.playerinput.PlayerType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import utils.ResourceReader;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class GameTest {
 
@@ -25,6 +32,20 @@ class GameTest {
         game.run();
         game.map.print();
     }
+
+
+    @Test
+    void testMapFromDisk() throws IOException {
+        Map[] maps = ResourceReader.loadMaps();
+        Map m = Arrays.stream(maps).filter(mm -> mm.getName().equals("Test-map")).collect(Collectors.toList()).get(0);
+        PlayerPool pp = PlayerPool.builder()
+                .addPlayer(Pid.P1, PlayerType.AI)
+                .addPlayer(Pid.P2, PlayerType.AI);
+        Game game = new Game(m, pp);
+        game.run();
+        game.map.print();
+    }
+
 
     @Test
     void aiFightSimulationBigger() throws IOException {

@@ -1,0 +1,162 @@
+- name: "Test-map"
+  width: 4
+  height: 4
+  cells:
+    - - name: "PLAIN"
+        defence: 0.0
+        moveCost: 1
+        position:
+          x: 0
+          y: 0
+        unit:
+          player: "P1"
+          unitName: "TANK"
+          unitType: "LAND"
+          unitAttributes:
+            - "HEAVY"
+          attack:
+            attackType: "MELEE"
+            attackRange: 1
+            attackDamage: 8
+          status: "EXHAUSTED"
+          cost: 250
+          value: 17
+          maxHealth: 25
+          currentHealth: 25
+          moveRange: 7
+      - name: "PLAIN"
+        defence: 0.0
+        moveCost: 1
+        position:
+          x: 0
+          y: 1
+        unit: null
+      - name: "PLAIN"
+        defence: 0.0
+        moveCost: 1
+        position:
+          x: 0
+          y: 2
+        unit: null
+      - name: "FOREST"
+        defence: 0.25
+        moveCost: 2
+        position:
+          x: 0
+          y: 3
+        unit: null
+    - - name: "FOREST"
+        defence: 0.25
+        moveCost: 2
+        position:
+          x: 1
+          y: 0
+        unit:
+          player: "P1"
+          unitName: "ARTILLERY"
+          unitType: "LAND"
+          unitAttributes:
+            - "RANGE"
+            - "HEAVY"
+          attack:
+            attackType: "RANGE"
+            attackRange: 5
+            attackDamage: 4
+          status: "EXHAUSTED"
+          cost: 200
+          value: 11
+          maxHealth: 10
+          currentHealth: 10
+          moveRange: 6
+      - name: "HILLS"
+        defence: 0.5
+        moveCost: 3
+        position:
+          x: 1
+          y: 1
+        unit: null
+      - name: "FOREST"
+        defence: 0.25
+        moveCost: 2
+        position:
+          x: 1
+          y: 2
+        unit: null
+      - name: "PLAIN"
+        defence: 0.0
+        moveCost: 1
+        position:
+          x: 1
+          y: 3
+        unit: null
+    - - name: "FOREST"
+        defence: 0.25
+        moveCost: 2
+        position:
+          x: 2
+          y: 0
+        unit: null
+      - name: "PLAIN"
+        defence: 0.0
+        moveCost: 1
+        position:
+          x: 2
+          y: 1
+        unit: null
+      - name: "FOREST"
+        defence: 0.25
+        moveCost: 2
+        position:
+          x: 2
+          y: 2
+        unit: null
+      - name: "HILLS"
+        defence: 0.5
+        moveCost: 3
+        position:
+          x: 2
+          y: 3
+        unit: null
+    - - name: "FOREST"
+        defence: 0.25
+        moveCost: 2
+        position:
+          x: 3
+          y: 0
+        unit: null
+      - name: "HILLS"
+        defence: 0.5
+        moveCost: 3
+        position:
+          x: 3
+          y: 1
+        unit: null
+      - name: "PLAIN"
+        defence: 0.0
+        moveCost: 1
+        position:
+          x: 3
+          y: 2
+        unit: null
+      - name: "FOREST"
+        defence: 0.25
+        moveCost: 2
+        position:
+          x: 3
+          y: 3
+        unit:
+          player: "P2"
+          unitName: "INFANTRY"
+          unitType: "LAND"
+          unitAttributes:
+            - "LIGHT"
+          attack:
+            attackType: "MELEE"
+            attackRange: 1
+            attackDamage: 3
+          status: "EXHAUSTED"
+          cost: 100
+          value: 10
+          maxHealth: 10
+          currentHealth: 10
+          moveRange: 4
