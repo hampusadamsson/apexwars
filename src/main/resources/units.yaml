@@ -1,0 +1,56 @@
+- unitName: INFANTRY
+  unitType: LAND
+  status: EXHAUSTED
+  cost: 100
+  value: 10
+  maxHealth: 10
+  moveRange: 4
+  unitAttributes:
+    - LIGHT
+  attack:
+    attackType: MELEE
+    attackRange: 1
+    attackDamage: 3
+
+- unitName: TANK
+  unitType: LAND
+  status: EXHAUSTED
+  cost: 250
+  value: 17
+  maxHealth: 25
+  moveRange: 7
+  unitAttributes:
+    - HEAVY
+  attack:
+    attackType: MELEE
+    attackRange: 1
+    attackDamage: 8
+
+- unitName: RECKON
+  unitType: LAND
+  status: EXHAUSTED
+  cost: 160
+  value: 12
+  maxHealth: 25
+  moveRange: 11
+  unitAttributes:
+    - HEAVY
+  attack:
+    attackType: MELEE
+    attackRange: 1
+    attackDamage: 4
+
+- unitName: ARTILLERY
+  unitType: LAND
+  status: EXHAUSTED
+  cost: 200
+  value: 11
+  maxHealth: 10
+  moveRange: 6
+  unitAttributes:
+    - RANGE
+    - HEAVY
+  attack:
+    attackType: RANGE
+    attackRange: 5
+    attackDamage: 4

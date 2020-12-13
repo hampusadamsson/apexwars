@@ -1,0 +1,11 @@
+- name: PLAIN
+  defence: 0
+  moveCost: 1
+
+- name: FOREST
+  defence: 0.25
+  moveCost: 2
+
+- name: HILLS
+  defence: 0.5
+  moveCost: 3
